@@ -3,12 +3,13 @@
 
 <!-- 🐨 Create (in HTML) a <body> with a <div> with the id of "root" -->
 <body>
-    <div id="root"></div>
     <script type="module">
+        const parentEl = document.createElement('div');
+        parentEl.id = "root";
+        document.body.appendChild(parentEl);
         const childEl = document.createElement('div');
         childEl.textContent = 'Hello World';
         childEl.className = 'container';
-        const parentEl = document.getElementById('root');
         parentEl.append(childEl);
     </script>
 </body>
