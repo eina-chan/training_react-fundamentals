@@ -9,9 +9,8 @@
   <script type="text/babel">
     // 🐨 Make a function called `message` which returns the JSX we want to share
 
-    function message(props){
-      const {children} = props;
-      return children;
+    function message({children}){
+      return <div className="message">{children}</div>
 
     }
 
@@ -19,8 +18,8 @@
     // 💰 {message({children: 'Hello World'})} {message({children: 'Goodbye World'})}
     const element = (
       <div className="container">
-        <div>{message({children: 'Hello World'})}</div>
-        <div>{message({children: 'Goodbye World'})}</div>
+        {message({children: 'Hello World'})}
+        {message({children: 'Goodbye World'})}
       </div>
     )
 
