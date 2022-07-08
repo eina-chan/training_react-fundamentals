@@ -4,7 +4,7 @@
 import * as React from 'react'
 
 function UsernameForm({onSubmitUsername}) {
-  const [username, setUsername] = React.useState(null);
+  const [username, setUsername] = React.useState(''); // empty string rather than null
   // 🐨 add a submit event handler here (`handleSubmit`).
 
   const handleSubmit = (event) => {
