@@ -19,24 +19,40 @@ import '../box-styles.css'
 // const largeBox = <div className="box box--large" style={{backgroundColor: 'orange', fontStyle: 'italic'}}>large orange box</div>
 
 const Box = (props) => {
-  const {className = '', style, ...otherProps} = props;
+  const {size, style, ...otherProps} = props;
+  let className;
+  switch (size){
+    case "small":
+      className = "box box--small";
+      break;
+  case "medium":
+    className = "box box--medium";
+    break;
+    case "large":
+      className = "box box--large";
+      break;
+    default:
+      className = "box"
+  }
+
   return (
-    <div className={`box ${className}`} style={{fontStyle: 'italics', ...style}} {...otherProps}/> // instead of closing tag and a children prop, spread and include "otherProps" in opening tag
+    <div className={className} style={{fontStyle: 'italics', ...style}} {...otherProps}/> // instead of closing tag and a children prop, spread and include "otherProps" in opening tag
   )
 }
 
 function App() {
   return (
     <div>
-      <Box className="box--small" style={{backgroundColor: 'lightblue'}}>
+      <Box size="small" style={{backgroundColor: 'lightblue'}}>
         small lightblue box
       </Box>
-      <Box className="box--medium" style={{backgroundColor: 'pink'}}>
+      <Box size="medium" style={{backgroundColor: 'pink'}}>
         medium pink box
       </Box>
-      <Box className="box--large" style={{backgroundColor: 'orange'}}>
+      <Box size="large" style={{backgroundColor: 'orange'}}>
         large orange box
       </Box>
+      <Box>Test</Box>
     </div>
   )
 }
