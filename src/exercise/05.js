@@ -19,9 +19,9 @@ import '../box-styles.css'
 // const largeBox = <div className="box box--large" style={{backgroundColor: 'orange', fontStyle: 'italic'}}>large orange box</div>
 
 const Box = (props) => {
-  const {children, className, style} = props;
+  const {className = '', style, ...otherProps} = props;
   return (
-    <div className={`box ${className}`} style={{...style, fontStyle: 'italics'}}>{children}</div>
+    <div className={`box ${className}`} style={{fontStyle: 'italics', ...style}} {...otherProps}/> // instead of closing tag and a children prop, spread and include "otherProps" in opening tag
   )
 }
 
