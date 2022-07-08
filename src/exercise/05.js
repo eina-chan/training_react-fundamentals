@@ -20,23 +20,10 @@ import '../box-styles.css'
 
 const Box = (props) => {
   const {size, style, ...otherProps} = props;
-  let className;
-  switch (size){
-    case "small":
-      className = "box box--small";
-      break;
-  case "medium":
-    className = "box box--medium";
-    break;
-    case "large":
-      className = "box box--large";
-      break;
-    default:
-      className = "box"
-  }
+  const sizeClassName = size ? `box--${size}` : ''; // single line
 
   return (
-    <div className={className} style={{fontStyle: 'italics', ...style}} {...otherProps}/> // instead of closing tag and a children prop, spread and include "otherProps" in opening tag
+    <div className={`box ${sizeClassName}`} style={{fontStyle: 'italic', ...style}} {...otherProps}/> // instead of closing tag and a children prop, spread and include "otherProps" in opening tag
   )
 }
 
