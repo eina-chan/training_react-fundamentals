@@ -27,7 +27,7 @@ function UsernameForm({onSubmitUsername}) {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label>Username:</label>
+        <label htmlfor="usernameInput">Username:</label> {/* missed this instruction - important for screen readers */}
         <input id="usernameInput" type="text" />
       </div>
       <button type="submit">Submit</button>
